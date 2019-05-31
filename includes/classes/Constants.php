@@ -2,6 +2,7 @@
 
 class Constants {
 
+    //Registration errors
     public static $passwordsDoNotMatch = "Your passwords don't match.";
     public static $passwordsNotAlphanumeric = "Your passwords can contain only numbers and letters.";
     public static $passwordsCharacters = "Your password must be between 8 and 30 characters.";
@@ -12,6 +13,9 @@ class Constants {
     public static $firstNameCharacters = "Your first name must be between 2 and 25 characters.";
     public static $usernameCharacters = "Your username must be between 5 and 25 characters.";
     public static $usernameTaken = "This username is already taken. Use another one.";
+
+    //Login errors
+    public static $loginFailed = "Username or password are incorrect.";
     
 
 }

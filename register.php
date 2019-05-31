@@ -2,6 +2,7 @@
     include("includes/config.php");
     include("includes/classes/Account.php");
     include("includes/classes/Constants.php");
+    
     //$con to nasze polaczenie z baza danych
     $account = new Account($con);
     
@@ -28,6 +29,7 @@
         <form action="register.php" method="post" id="loginForm">
             <h2>Login to your account</h2>
             <p>
+                <?php echo $account->getError(Constants::$loginFailed); ?>
                 <label for="loginUsername">Username</label>
                 <input type="text" id="loginUsername" name="loginUsername" placeholder="e.g. Family_Guy" required>
             </p>
