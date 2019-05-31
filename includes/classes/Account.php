@@ -31,7 +31,7 @@ class Account {
 
     private function validateUsername($un) {
         if(strlen($un) > 25 || strlen($un) < 5) {
-            array_push($this->errorArray, "Your username must be between 5 and 25 characters.");
+            array_push($this->errorArray, Constants::$usernameCharacters);
             return;
         }
 
@@ -40,27 +40,27 @@ class Account {
 
     private function validateFirstName($fn) {
         if(strlen($fn) > 25 || strlen($fn) < 2) {
-            array_push($this->errorArray, "Your first name must be between 2 and 25 characters.");
+            array_push($this->errorArray, Constants::$firstNameCharacters);
             return;
         }
     }
 
     private function validateLastName($ln) {
         if(strlen($ln) > 25 || strlen($ln) < 2) {
-            array_push($this->errorArray, "Your last name must be between 2 and 25 characters.");
+            array_push($this->errorArray, Constants::$lastNameCharacters);
             return;
         }
     }
 
     private function validateEmails($em1, $em2) {
         if($em1 != $em2) {
-            array_push($this->errorArray, "Your emails don't match.");
+            array_push($this->errorArray, Constants::$emailsDoNotMatch);
             return;
         }
 
         //Funkcja sprawdza czy email jest w poprawnej postaci
         if(!filter_var($em1, FILTER_VALIDATE_EMAIL)) {
-            array_push($this->errorArray, "Email is invalid.");
+            array_push($this->errorArray, Constants::$emailInvalid);
             return;
         }
 
@@ -69,18 +69,18 @@ class Account {
 
     private function validatePasswords($pw, $pw2) {
         if($pw != $pw2) {
-            array_push($this->errorArray, "Your passwords don't match.");
+            array_push($this->errorArray, Constants::$passwordsDoNotMatch);
             return;
         }
 
         //Sprawdzamy czy haslo nie pasuje do wzorca
         if(preg_match("/[^A-Za-z0-9]/", $pw)) {
-            array_push($this->errorArray, "Your passwords can contain only numbers and letters.");
+            array_push($this->errorArray, Constants::$passwordsNotAlphanumeric);
             return;
         }
 
         if(strlen($pw) > 30 || strlen($pw) < 8) {
-            array_push($this->errorArray, "Your password must be between 8 and 30 characters.");
+            array_push($this->errorArray, Constants::$passwordsCharacters);
             return;
         }
     }
