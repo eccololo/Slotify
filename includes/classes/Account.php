@@ -18,7 +18,7 @@ class Account {
 
         if(empty($this->errorArray)) {
             //Wstaw do bazy danych
-            return insertUserDetails($un, $fn, $ln, $em, $pw);
+            return $this->insertUserDetails($un, $fn, $ln, $em, $pw);
         } else {
             return false;
         }
@@ -37,7 +37,7 @@ class Account {
         $profilePic = "assets/images/profile-pics/head_emerald.png";
         $date = date("Y-m-d");
 
-        $sql = "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')";
+        $sql = "INSERT INTO users VALUES (null, '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')";
         $result = mysqli_query($this->con, $sql);
 
         return $result;
@@ -49,7 +49,13 @@ class Account {
             return;
         }
 
-        //TODO: check if username exists
+        $sql = "SELECT username FROM users WHERE username = '$un'";
+        $checkUsernameQuery = mysqli_query($this->con, $sql);
+        //Sprawdza czy resultat z bazy danych zwrocil jakikolwiek wynik 
+        if(mysqli_num_rows($checkUsernameQuery) != 0) {
+            array_push($this->errorArray, Constants::$usernameTaken);
+            return;
+        }
     }
 
     private function validateFirstName($fn) {
@@ -78,7 +84,13 @@ class Account {
             return;
         }
 
-        //TODO: sprawdzic czy ten email nie zostal juz uzyty
+        $sql = "SELECT email FROM users WHERE email = '$em1'";
+        $checkEmailQuery = mysqli_query($this->con, $sql);
+        //Sprawdza czy resultat z bazy danych zwrocil jakikolwiek wynik 
+        if(mysqli_num_rows($checkEmailQuery) != 0) {
+            array_push($this->errorArray, Constants::$emailTaken);
+            return;
+        }
     }
 
     private function validatePasswords($pw, $pw2) {
@@ -97,6 +109,10 @@ class Account {
             array_push($this->errorArray, Constants::$passwordsCharacters);
             return;
         }
+    }
+
+    public function getCon() {
+        return $this->con;
     }
         
 }
