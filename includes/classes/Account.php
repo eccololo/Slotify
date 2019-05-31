@@ -2,9 +2,11 @@
 class Account {
 
     private $errorArray;
+    private $con;
 
-    public function __construct() {
+    public function __construct($con) {
         $this->errorArray = array();
+        $this->con = $con;
     }
     
     public function register($un, $fn, $ln, $em, $em2, $pw, $pw2) {
@@ -16,7 +18,7 @@ class Account {
 
         if(empty($this->errorArray)) {
             //Wstaw do bazy danych
-            return true;
+            return insertUserDetails($un, $fn, $ln, $em, $pw);
         } else {
             return false;
         }
@@ -27,6 +29,18 @@ class Account {
             $error = "";
         }
         return "<span class='errorMessage'>$error</span>";
+    }
+
+    private function insertUserDetails($un, $fn, $ln, $em, $pw) {
+        //Prosta metoda szyfrowania hasla.
+        $encryptedPw = md5($pw);
+        $profilePic = "assets/images/profile-pics/head_emerald.png";
+        $date = date("Y-m-d");
+
+        $sql = "INSERT INTO users VALUES ('', '$un', '$fn', '$ln', '$em', '$encryptedPw', '$date', '$profilePic')";
+        $result = mysqli_query($this->con, $sql);
+
+        return $result;
     }
 
     private function validateUsername($un) {
