@@ -34,7 +34,7 @@
             header("Location: index.php");
         } else {
             //TODO: Zmienic w wersji ostatecznej.
-            echo "<h1>Registration Failed: " . mysqli_error($account->getCon()) . "</h1>";
+            //echo "<h1>Registration Failed: " . mysqli_error($account->getCon()) . "</h1>";
         }
     }
 ?>
