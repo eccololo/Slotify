@@ -22,7 +22,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://kit.fontawesome.com/bbf2983d3d.js"></script> -->
     <title>Welcome to Slotify!</title>
 </head>
 
@@ -124,9 +126,9 @@
                 <h1>Get great music, right now!</h1>
                 <h2>Listen to loads of songs for free.</h2>
                 <ul>
-                    <li>Discover music you fall in love with.</li>
-                    <li>Create your own playlists.</li>
-                    <li>Follow artists to keep up to date.</li>
+                    <li><i class="fas fa-check"></i> Discover music you fall in love with.</li>
+                    <li><i class="fas fa-check"></i> Create your own playlists.</li>
+                    <li><i class="fas fa-check"></i> Follow artists to keep up to date.</li>
                 </ul>
            </div>
         </div>
