@@ -7,7 +7,7 @@ body {
 
 #background {
     background-color: #000;
-    background-image: url(../images/bg2.jpg);
+    background-image: url(../images/bg3.jpg);
     background-position: center;
     background-size: cover;
     display: table;
@@ -97,4 +97,17 @@ body {
 
 #inputContainer button:hover {
     cursor: pointer;
+}
+
+.hasAccountText span {
+    font-size: bold;
+    font-weight: 7px;
+}
+
+.hasAccountText span:hover {
+    cursor: pointer;
+}
+
+.hasAccountText {
+    text-align: center;
 }

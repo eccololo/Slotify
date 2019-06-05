@@ -22,6 +22,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="assets/css/register.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Welcome to Slotify!</title>
 </head>
 
@@ -42,6 +43,9 @@
                         <input type="password" id="loginPassword" name="loginPassword" placeholder="Your password" required>
                     </p>
                     <button type="submit" name="loginButton">LOG IN</button>
+                    <div class="hasAccountText">
+                        <span id="hideLogin">Don't have account yet? Signup here.</span>
+                    </div>
                 </form>
 
                 <form action="register.php" method="post" id="registerForm">
@@ -96,10 +100,14 @@
                         <input type="password" id="password2" name="password2" placeholder="Your password" required>
                     </p>
                     <button type="submit" name="registerButton">SIGN UP</button>
+                    <div class="hasAccountText">
+                        <span id="hideRegister">Already have an account? Log in here.</span>
+                    </div>
                 </form>
            </div>
         </div>
     </div>
+    <script src="assets/js/register.js" type="text/javascript"></script>
 </body>
 
 </html>
