@@ -7,7 +7,7 @@ body {
 
 #background {
     background-color: #000;
-    background-image: url(../images/bg3.jpg);
+    background-image: url(../images/bg4.jpg);
     background-position: center;
     background-size: cover;
     display: table;
@@ -46,6 +46,10 @@ body {
    color:    #fff;
 }
 
+input:focus {
+    outline: none;
+}
+
 #loginContainer {
     width: 80%;
     margin: 0 auto;
@@ -77,9 +81,10 @@ body {
 }
 
 #inputContainer label {
-    color: #a0a0a0;
+    color: #c7c3c3;
     font-size: 13px;
     margin-top: 15px;
+    display: block;
 }
 
 #inputContainer button {
@@ -100,8 +105,8 @@ body {
 }
 
 .hasAccountText span {
-    font-size: bold;
-    font-weight: 7px;
+    font-size: 13px;
+    font-weight: bold;
 }
 
 .hasAccountText span:hover {
@@ -138,5 +143,13 @@ body {
 #loginText ul li {
     font-size: 20px;
     list-style-type: none;
-    padding: 10px;
+    padding: 10px 35px;
+    background: url(../images/icons/checkmark-30-right-color.png) no-repeat 0 0; 
 } 
+
+#inputContainer .errorMessage {
+    color: #07d159;
+    font-size: 14px;
+    display: block;
+    font-weight: bold;
+}
