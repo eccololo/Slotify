@@ -50,12 +50,14 @@
                     <p>
                         <?php echo $account->getError(Constants::$loginFailed); ?>
                         <label for="loginUsername">Username</label>
-                        <input type="text" id="loginUsername" name="loginUsername" placeholder="e.g. Family_Guy" required>
+                        <input type="text" id="loginUsername" name="loginUsername" 
+                        placeholder="e.g. Family_Guy" value="<?php getInputValue('loginUsername'); ?>" required>
                     </p>
 
                     <p>
                         <label for="loginPassword">Password</label>
-                        <input type="password" id="loginPassword" name="loginPassword" placeholder="Your password" required>
+                        <input type="password" id="loginPassword" name="loginPassword" 
+                        placeholder="Your password" required>
                     </p>
                     <button type="submit" name="loginButton">LOG IN</button>
                     <div class="hasAccountText">
