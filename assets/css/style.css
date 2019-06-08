@@ -32,3 +32,12 @@ html, body {
     flex-direction: column;
     align-items: center;
 }
+
+#nowPlayingBar .content {
+    width: 100%;
+}
+
+.playerControls .buttons {
+    margin: 0 auto;
+    display: table;
+}

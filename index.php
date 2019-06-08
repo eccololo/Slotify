@@ -22,7 +22,11 @@
 
                     </div>
                     <div id="nowPlayingCenter">
-                         
+                         <div class="content playerControls">
+                              <div class="buttons">
+                                   <button>hello</button>
+                              </div>
+                         </div>
                     </div>
                     <div id="nowPlayingRight">
                          
