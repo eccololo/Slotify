@@ -19,7 +19,12 @@
          <div id="nowPlayingBarContainer">
                <div id="nowPlayingBar">
                     <div id="nowPlayingLeft">
-
+                         <div class="content">
+                              <span class="albumLink">
+                                   <img src="assets/images/placeholders/square-image-orange.jpg" alt=""
+                                   class="albumArtwork">
+                              </span>
+                         </div>
                     </div>
                     <div id="nowPlayingCenter">
                          <div class="content playerControls">
@@ -49,7 +54,7 @@
                                    <div class="progressBar">
                                         <div class="progressBarBg">
                                              <div class="progress">
-                                                  
+
                                              </div>
                                         </div>
                                    </div>
