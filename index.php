@@ -24,6 +24,14 @@
                                    <img src="assets/images/placeholders/square-image-orange.jpg" alt=""
                                    class="albumArtwork">
                               </span>
+                              <div class="trackInfo">
+                                   <span class="trackName">
+                                        <span>The Bicycle on the Moon</span>
+                                   </span>
+                                   <span class="artistName">
+                                        <span>Mateusz Hyla</span>
+                                   </span>
+                              </div>  
                          </div>
                     </div>
                     <div id="nowPlayingCenter">
