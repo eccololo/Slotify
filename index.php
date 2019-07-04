@@ -11,18 +11,25 @@
 ?>
 
 <html>
-     <head>
-          <title></title>
-          <link rel="stylesheet" href="assets/css/style.css">
-     </head>
-     <body>
-         <div id="nowPlayingBarContainer">
+
+<head>
+     <title></title>
+     <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+     <div id="mainContainer">
+          <div id="topContainer">
+          
+          </div>
+
+          <div id="nowPlayingBarContainer">
                <div id="nowPlayingBar">
                     <div id="nowPlayingLeft">
                          <div class="content">
                               <span class="albumLink">
                                    <img src="assets/images/placeholders/square-image-orange.jpg" alt=""
-                                   class="albumArtwork">
+                                        class="albumArtwork">
                               </span>
                               <div class="trackInfo">
                                    <span class="trackName">
@@ -31,7 +38,7 @@
                                    <span class="artistName">
                                         <span>Mateusz Hyla</span>
                                    </span>
-                              </div>  
+                              </div>
                          </div>
                     </div>
                     <div id="nowPlayingCenter">
@@ -66,7 +73,7 @@
                                              </div>
                                         </div>
                                    </div>
-                                   
+
                                    <span class="progressTime remaining">0.00</span>
                               </div>
                          </div>
@@ -77,15 +84,17 @@
                                    <img src="assets/images/icons/volume.png" alt="Volume">
                               </button>
                               <div class="progressBar">
-                                        <div class="progressBarBg">
-                                             <div class="progress">
+                                   <div class="progressBarBg">
+                                        <div class="progress">
 
-                                             </div>
                                         </div>
+                                   </div>
                               </div>
                          </div>
                     </div>
                </div>
-         </div>
-     </body>
-</html>    
+          </div>
+     </div>
+</body>
+
+</html>
