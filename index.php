@@ -20,7 +20,13 @@
 <body>
      <div id="mainContainer">
           <div id="topContainer">
-          
+               <div id="navBarContainer">
+                    <nav class="navBar">
+                         <a href="index.php" class="logo">
+                              <img src="assets/images/icons/logo.png" alt="">
+                         </a>
+                    </nav>
+               </div>
           </div>
 
           <div id="nowPlayingBarContainer">
