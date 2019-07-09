@@ -9,6 +9,12 @@ html, body {
     color: #fff;
 }
 
+body {
+    background-color: #181818;
+    font-size: 14px;
+    min-width: 720px;
+}
+
 #nowPlayingBarContainer {
     width: 100%;
     position: fixed;
@@ -201,5 +207,15 @@ html, body {
     top: 5px;
     right: 0;
     width: 30px;
+}
+
+#mainViewContainer {
+    margin-left: 240px;
+    padding-bottom: 90px;
+    width: calc(100% - 220px);
+}
+
+#mainContent {
+    padding: 0 20px;
 }
     
