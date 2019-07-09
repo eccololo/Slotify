@@ -218,4 +218,9 @@ body {
 #mainContent {
     padding: 0 20px;
 }
+
+.gridViewArtwork {
+    width: 200px;
+    height: 200px;
+}
     
