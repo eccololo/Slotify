@@ -6,14 +6,14 @@
 
           while($row = mysqli_fetch_array($albumQuery)) {
                echo "<div class='gridViewItem'>
-                         <img src='" . $row['artworkPath'] . "' class='gridViewArtwork'>
-                         <div class='gridViewInfo'>
-                              " . $row['title'] . "
-                         </div>
+                         <a href='album.php?id=" . $row['id'] . "'>
+                             <img src='" . $row['artworkPath'] . "' class='gridViewArtwork'>
+                             <div class='gridViewInfo'>
+                                  " . $row['title'] . "
+                             </div>
+                         </a>
                     </div>";
           }
      ?>
 </div>
 <?php include("includes/footer.php"); ?>
-
-             
