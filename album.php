@@ -9,12 +9,11 @@
      $albumQuery = mysqli_query($con, "SELECT * FROM albums WHERE id='$albumId'");
      $album = mysqli_fetch_array($albumQuery);
 
-     $artistId = $album['artist'];
+     $artist = new Artist($con, $album['artist']);
 
-     $artistQuery = mysqli_query($con, "SELECT * FROM artists WHERE id='$artistId'");
-     $artist = mysqli_fetch_array($artistQuery);
-
-     echo $artist['name'];
+     echo $album['title'];
+     echo "<br>";
+     echo $artist->getName();
 
 
 ?>
