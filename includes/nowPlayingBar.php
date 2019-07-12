@@ -16,7 +16,10 @@
      });
 
      function setTrack(trackId, newPlaylist, play) {
-
+          audioElement.setTrack("assets/music/bensound-sweet.mp3");
+          if(play) {
+               audioElement.play();
+          }
      }
 </script>
 <div id="nowPlayingBarContainer">
