@@ -33,7 +33,7 @@
                 echo "<li class='trackListRow'>
                         <div class='trackCount'>
                             <img class='play' src='assets/images/icons/play-white.png'>
-                            <span class='trackNumber'>$i</span>
+                            <span class='trackNumber'>$i.</span>
                         </div>
 
                         <div class='trackInfo'>
