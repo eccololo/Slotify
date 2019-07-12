@@ -18,9 +18,12 @@
 <head>
      <title></title>
      <link rel="stylesheet" href="assets/css/style.css">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+     <script src='assets/js/script.js'></script>
 </head>
 
 <body>
+
      <div id="mainContainer">
           <div id="topContainer">
                <?php include("includes/navBarContainer.php"); ?>
