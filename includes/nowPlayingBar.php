@@ -28,8 +28,15 @@
                     $(".artistName span").text(artist.name); 
                });
 
-               audioElement.setTrack(track.path);
-               audioElement.play();
+               $.post("includes/handlers/ajax/getAlbumJson.php", {albumId: track.album}, function(data) {
+                    var album = JSON.parse(data);
+                    $(".albumLink img").attr("src", album.artworkPath);
+               });
+
+               audioElement.setTrack(track);
+               //audioElement.play();
+               playSong();
+               
           });
           if(play) {
                audioElement.play();
@@ -37,6 +44,12 @@
      }
 
      function playSong() {
+
+          //Jesli zaczelismy sluchac nowej piosenki i jestesmy na jej poczatku updatujemy plays w db
+          if(audioElement.audio.currentTime == 0) {
+               $.post("includes/handlers/ajax/updatePlays.php", {songId: audioElement.currentlyPlaying.id});
+          } 
+
           $(".controlButton.play").hide();
           $(".controlButton.pause").show();
           audioElement.play();
@@ -53,7 +66,7 @@
                     <div id="nowPlayingLeft">
                          <div class="content">
                               <span class="albumLink">
-                                   <img src="assets/images/placeholders/square-image-orange.jpg" alt=""
+                                   <img src="" alt=""
                                         class="albumArtwork">
                               </span>
                               <div class="trackInfo">
