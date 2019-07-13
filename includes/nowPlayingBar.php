@@ -16,7 +16,9 @@
      });
 
      function setTrack(trackId, newPlaylist, play) {
-          audioElement.setTrack("assets/music/bensound-sweet.mp3");
+          $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
+               console.log(data);
+          });
           if(play) {
                audioElement.play();
           }
