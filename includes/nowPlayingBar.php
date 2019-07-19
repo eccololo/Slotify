@@ -13,7 +13,34 @@
           currentPlaylist = <?php echo $jsonArray; ?>;
           audioElement = new Audio();
           setTrack(currentPlaylist[0], currentPlaylist, false);
+
+          //Ewenty dzieki ktorym mozemy kliknac na progress bar piosenki i przesunac ja w lewo lub w prawo
+          $("#playbackBar .progressBar").mousedown(function() {
+               mouseDown = true;
+          });
+
+          $("#playbackBar .progressBar").mousemove(function(e) {
+               if(mouseDown) {
+                    timeFromOffset(e, this);
+               }
+          });
+
+          $("#playbackBar .progressBar").mouseup(function(e) {
+                    timeFromOffset(e, this);
+          });
+
+          $(document).mouseup(function() {
+               mouseDown = false;
+          });
      });
+
+     //Funkcja ktora pomaga nam obliczyc ile musimy updatowac progress baru i jak ustawic duration piosenki 
+     //kiedy klikniemy na progress bar.
+     function timeFromOffset(mouse, progressBar) {
+          var percentage = mouse.offsetX / $(progressBar).width() * 100;
+          var seconds = audioElement.audio.duration * (percentage / 100);
+          audioElement.setTime(seconds);
+     }
 
      function setTrack(trackId, newPlaylist, play) {
           $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
