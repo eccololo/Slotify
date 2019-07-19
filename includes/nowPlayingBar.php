@@ -17,6 +17,11 @@
           //Na samym poczatku przy ladowaniu sie strony volume bar jest na 100%.
           updateVolumeProgressBar(audioElement.audio);
 
+          //Zapobiegamy przypadkowemu zaznaczeniu przez myszke elementow playing bara.
+          $("#nowPlayingBarContainer").on("mousedown touchstart mousemove touchmove", function(e) {
+               e.preventDefault();
+          });
+
           //Ewenty dzieki ktorym mozemy kliknac na progress bar piosenki i przesunac ja w lewo lub w prawo
           $("#playbackBar .progressBar").mousedown(function() {
                mouseDown = true;
