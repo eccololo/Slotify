@@ -14,6 +14,9 @@
           audioElement = new Audio();
           setTrack(currentPlaylist[0], currentPlaylist, false);
 
+          //Na samym poczatku przy ladowaniu sie strony volume bar jest na 100%.
+          updateVolumeProgressBar(audioElement.audio);
+
           //Ewenty dzieki ktorym mozemy kliknac na progress bar piosenki i przesunac ja w lewo lub w prawo
           $("#playbackBar .progressBar").mousedown(function() {
                mouseDown = true;
@@ -28,6 +31,29 @@
           $("#playbackBar .progressBar").mouseup(function(e) {
                     timeFromOffset(e, this);
           });
+          // -- Koniec -- //
+
+          //Ewenty dzieki ktorym mozemy kliknac na progress bar glosnosci i przesunac ja w lewo lub w prawo
+          $(".volumeBar .progressBar").mousedown(function() {
+               mouseDown = true;
+          });
+
+          $(".volumeBar .progressBar").mousemove(function(e) {
+               if(mouseDown) {
+                    var percentage = e.offsetX / $(this).width();
+                    if(percentage >= 0 && percentage <= 1) {
+                         audioElement.audio.volume = percentage;
+                    }
+               }
+          });
+
+          $(".volumeBar .progressBar").mouseup(function(e) {
+                    var percentage = e.offsetX / $(this).width();
+                    if(percentage >= 0 && percentage <= 1) {
+                         audioElement.audio.volume = percentage;
+                    }
+          });
+          // -- Koniec -- //
 
           $(document).mouseup(function() {
                mouseDown = false;
