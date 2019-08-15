@@ -3,6 +3,7 @@ var audioElement;
 var mouseDown = false;
 var currentIndex = 0;
 var repeat = false;
+var shuffle = false;
 
 //Funkcja formatujaca duration time to przyjaznej postaci.
 function formatTime(seconds) {
