@@ -73,8 +73,23 @@
           audioElement.setTime(seconds);
      }
 
+     //Kiedy nacisniemy button wstecz daje nam previous song
+     function prevSong() {
+          if(audioElement.audio.currentTime >= 3 || currentIndex == 0) {
+               
+          }
+     }
+
      //Funkcja ktora daje nam nastepna piosenke po wcisnieciu przycisku.
      function nextSong() {
+
+          //Jesli zapetlamy piosenke
+          if(repeat == true) {
+               audioElement.setTime(0);
+               playSong();
+               return;
+          }
+
           //Jesli doszlismy do ostatniej piosenki
           if(currentIndex == currentPlaylist.length - 1) {
                currentIndex = 0;
@@ -86,10 +101,17 @@
           setTrack(trackToPlay, currentPlaylist, true);
      }
 
-     function setTrack(trackId, newPlaylist, play) {
-          $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
+     function setRepeat() {
+          repeat = !repeat;
+          var imageName = repeat ? "repeat-active.png" : "repeat.png";
+          $(".controlButton.repeat img").attr("src", "assets/images/icons/" + imageName); 
+     }
 
-               currentIndex = currentPlaylist.indexOf(trackId);
+     function setTrack(trackId, newPlaylist, play) {
+          currentIndex = currentPlaylist.indexOf(trackId);
+          pauseSong();
+
+          $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
                
                var track = JSON.parse(data);
                
@@ -171,7 +193,7 @@
                                    <button class="controlButton next" title="Next button" onclick="nextSong();">
                                         <img src="assets/images/icons/next.png" alt="Next">
                                    </button>
-                                   <button class="controlButton repeat" title="Repeat button">
+                                   <button class="controlButton repeat" title="Repeat button" onclick="setRepeat();">
                                         <img src="assets/images/icons/repeat.png" alt="Repeat">
                                    </button>
                               </div>

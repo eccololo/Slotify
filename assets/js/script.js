@@ -37,6 +37,11 @@ function Audio() {
     this.currentlyPlaying;
     this.audio = document.createElement('audio');
 
+    //Kiedy piosenka dojdzie do konca powinna sie zacza inna.
+    this.audio.addEventListener("ended", function() {
+        nextSong();
+    });
+
     //Updatujemy pozostaly czas ktory zostal do wysluchania piosenki.
     this.audio.addEventListener("canplay", function() {
         var duration = formatTime(this.duration);
