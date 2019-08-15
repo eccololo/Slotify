@@ -2,6 +2,7 @@ var currentPlaylist = Array();
 var audioElement;
 var mouseDown = false;
 var currentIndex = 0;
+var repeat = false;
 
 //Funkcja formatujaca duration time to przyjaznej postaci.
 function formatTime(seconds) {

@@ -168,7 +168,7 @@
                                    onclick="pauseSong();">
                                         <img src="assets/images/icons/pause.png" alt="Pause">
                                    </button>
-                                   <button class="controlButton next" title="Next button">
+                                   <button class="controlButton next" title="Next button" onclick="nextSong();">
                                         <img src="assets/images/icons/next.png" alt="Next">
                                    </button>
                                    <button class="controlButton repeat" title="Repeat button">
