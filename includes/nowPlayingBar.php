@@ -119,12 +119,38 @@
      }
 
      function setShuffle() {
-          audioElement.audio.muted = !audioElement.audio.muted;
-          var imageName = audioElement.audio.muted ? "volume-mute.png" : "volume.png";
-          $(".controlButton.volume img").attr("src", "assets/images/icons/" + imageName); 
+          shuffle = !shuffle;
+          //Zmien ikonke shuffle po kliknieciu w nia
+          var imageName = shuffle ? "shuffle-active.png" : "shuffle.png";
+          $(".controlButton.shuffle img").attr("src", "assets/images/icons/" + imageName); 
+
+          if(shuffle == true) {
+               //pomieszaj playliste
+               shuffleArray(shufflePlaylist);
+          } else {
+               //Wracamy do normalnej playlisty, shuffle zostal wylaczony
+          }
+     }
+
+     function shuffleArray(a) {
+          var j, x, i;
+          for(i = a.length; i; i--) {
+               j = Math.floor(Math.random() * i);
+               x = a[i - 1];
+               a[i - 1] = a[j];
+               a[j] = x;
+          }
      }
 
      function setTrack(trackId, newPlaylist, play) {
+
+          if(newPlaylist != currentPlaylist) {
+               currentPlaylist = newPlaylist;
+               //Tworzymy kopie newPLaylist za pomoca funkcji slice.
+               shufflePlaylist = currentPlaylist.slice();
+               shuffleArray(shufflePlaylist);
+          }
+
           currentIndex = currentPlaylist.indexOf(trackId);
           pauseSong();
 
@@ -194,7 +220,7 @@
                     <div id="nowPlayingCenter">
                          <div class="content playerControls">
                               <div class="buttons">
-                                   <button class="controlButton shuffle" title="Shuffle button">
+                                   <button class="controlButton shuffle" title="Shuffle button" onclick="setShuffle();">
                                         <img src="assets/images/icons/shuffle.png" alt="Shuffle">
                                    </button>
                                    <button class="controlButton previous" title="Previous button" onclick="prevSong();">
