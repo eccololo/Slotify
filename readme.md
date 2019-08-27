@@ -1,6 +1,10 @@
 # Slotify - Spotify Clone
 
-## Author: Mateusz Hyla with help of Reece Kenney from Udemy.com
+## Author: Reece Kenney from Udemy.com
+
+As the author of this app is Reece Kenney from Udemy I am his student in his course and I learned in his project 
+a lot about JS audio API as well as building the whole structure of an application in HTML and CSS. The PHP is also 
+a technology used in this project for a back-end purposes.
 
 ### Credits:
 
