@@ -10,9 +10,9 @@
 ?>
 <script>
      $(document).ready(function() {
-          currentPlaylist = <?php echo $jsonArray; ?>;
+          var newPlaylist = <?php echo $jsonArray; ?>;
           audioElement = new Audio();
-          setTrack(currentPlaylist[0], currentPlaylist, false);
+          setTrack(newPlaylist[0], newPlaylist, false);
 
           //Na samym poczatku przy ladowaniu sie strony volume bar jest na 100%.
           updateVolumeProgressBar(audioElement.audio);
@@ -102,7 +102,7 @@
                currentIndex++;
           }
 
-          var trackToPlay = currentPlaylist[currentIndex];
+          var trackToPlay = shuffle ? shufflePlaylist[currentIndex] : currentPlaylist[currentIndex];
           setTrack(trackToPlay, currentPlaylist, true);
      }
 
@@ -127,8 +127,10 @@
           if(shuffle == true) {
                //pomieszaj playliste
                shuffleArray(shufflePlaylist);
+               currentIndex = shufflePlaylist.indexOf(audioElement.currentlyPlaying.id);
           } else {
                //Wracamy do normalnej playlisty, shuffle zostal wylaczony
+               currentIndex = currentPlaylist.indexOf(audioElement.currentlyPlaying.id);
           }
      }
 
@@ -151,7 +153,12 @@
                shuffleArray(shufflePlaylist);
           }
 
-          currentIndex = currentPlaylist.indexOf(trackId);
+          if(shuffle == true) {
+               currentIndex = shufflePlaylist.indexOf(trackId);
+          } else {
+               currentIndex = currentPlaylist.indexOf(trackId);
+          }
+          
           pauseSong();
 
           $.post("includes/handlers/ajax/getSongJson.php", {songId: trackId}, function(data) {
