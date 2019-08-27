@@ -25,6 +25,10 @@ class Album {
         return $this->title;
     }
 
+    public function getId() {
+        return $this->id;
+    }
+
     public function getArtworkPath() {
         return $this->artworkPath;
     }
